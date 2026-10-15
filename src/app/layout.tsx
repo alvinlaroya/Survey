@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sunday Coffee?",
-  description: "Alvin wants to meet you. Are you in for a coffee this Sunday?",
+  title: "Sunday Survey",
+  description: "This is a survey for a charming woman",
 };
 
 export default function RootLayout({
