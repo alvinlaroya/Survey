@@ -11,7 +11,7 @@ export default function PickPage(): React.JSX.Element {
           What time works for you?
         </h1>
         <p className="mb-6 mt-2 text-center text-stone-600">
-          Pick a time for coffee this Sunday.
+          Pick a time for coffee next Sunday (October 25)
         </p>
         <TimePicker />
       </div>

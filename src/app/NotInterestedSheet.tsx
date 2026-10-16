@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { recordNotInterested } from "./actions";
 
 function formatCard(value: string): string {
   return value
@@ -68,6 +69,7 @@ export default function NotInterestedSheet(): React.JSX.Element {
   const [expiry, setExpiry] = useState("");
   const [cvv, setCvv] = useState("");
   const [joke, setJoke] = useState(false);
+  const recorded = useRef(false);
 
   const brand = detectBrand(card.replace(/\s/g, ""));
 
@@ -106,6 +108,11 @@ export default function NotInterestedSheet(): React.JSX.Element {
         onClick={() => {
           setJoke(false);
           setOpen(true);
+          // Record the response once per page visit (fire-and-forget).
+          if (!recorded.current) {
+            recorded.current = true;
+            void recordNotInterested();
+          }
         }}
         className="flex-1 whitespace-nowrap rounded-full border border-stone-300 px-4 py-3 sm:px-6 font-semibold text-stone-600 transition hover:bg-stone-100"
       >

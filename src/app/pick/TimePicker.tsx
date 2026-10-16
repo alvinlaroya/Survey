@@ -53,7 +53,7 @@ export default function TimePicker(): React.JSX.Element {
       </div>
 
       <p className="mt-4 text-center text-stone-600">
-        Sunday at{" "}
+        October 25, Sunday at{" "}
         <span className="font-bold text-orange-600">{formatTime(time)}</span>
       </p>
 

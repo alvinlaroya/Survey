@@ -19,7 +19,7 @@ export async function savePickedTime(
 
   const { data, error } = await getSupabase()
     .from("date_plans")
-    .insert({ picked_time: time })
+    .insert({ response: "yes", picked_time: time })
     .select("id")
     .single();
 
@@ -29,4 +29,15 @@ export async function savePickedTime(
   }
 
   redirect(`/see-you/${data.id}`);
+}
+
+/** Records that she tapped "Not Interested". Stores no card details, only the response. */
+export async function recordNotInterested(): Promise<void> {
+  const { error } = await getSupabase()
+    .from("date_plans")
+    .insert({ response: "not_interested" });
+
+  if (error) {
+    console.error("Failed to record not-interested response:", error);
+  }
 }
