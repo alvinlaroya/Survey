@@ -13,7 +13,7 @@ export default function Home(): React.JSX.Element {
           Alvin wants to meet you.
         </h1>
         <p className="mt-2 text-lg text-stone-600">
-          Are you in for a coffee this Sunday?
+          Are you up for coffee on Sunday, October 25?
         </p>
 
         <div className="mt-8 flex gap-3">
